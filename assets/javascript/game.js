@@ -37,7 +37,6 @@ else {
             document.getElementById("answer").innerHTML = answerArr.join(" ");
         }
         if (count > 6) {
-            document.getElementById("stat").innerHTML = "You Lose!  Better luck next time!";
             alert("You Lose!  Better luck next time!");
         }
     }
