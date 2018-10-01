@@ -26,18 +26,18 @@ else {
 
     function Letter() {
         var letter = document.getElementById("letter").value;
-        if (letter.length > 0)
-        {
-            for (var i = 0; i < randomWord.length; i++)
-            {
-                if (randomWord === letter)
-                {
+        if (letter.length > 0) {
+            for (var i = 0; i < randomWord.length; i++) {
+                if (randomWord[i] === letter) {
                     answerArr[i] = letter;
                 }
             }
             count++;
-            document.getElementById("Counter").innerHTML = "# of clicks: " + count;
+            document.getElementById("Counter").innerHTML = "# of guesses: " + count;
             document.getElementById("answer").innerHTML = answerArr.join(" ");
         }
-        
+        if (count > 6) {
+            document.getElementById("stat").innerHTML = "You Lose!  Better luck next time!";
+            alert("You Lose!  Better luck next time!");
+        }
     }
