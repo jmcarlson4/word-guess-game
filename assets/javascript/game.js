@@ -6,37 +6,77 @@ if (game){
 }
 else {
         alert("Maybe some other time");
-    }
+}
 
     var randomWordArr = ["monkey", "zebra", "elephant", "snake", "giraffe"];
     var randomWord = randomWordArr[Math.floor(Math.random() * randomWordArr.length )];
-    
-    var a;
+
     var count = 0;
+    var allCount = 0;
+    var correctCount = 0;
     var answerArr = [];
+    var correctAnswerArr = [];
+    var wins = 0;
+    var losses = 0;
 
     function StartUp() {
-    for (var i = 0; i < randomWord.length; i++) {
-        answerArr[i] = "_";
-    }
-
-    a = answerArr.join(" ");
-    document.getElementById("answer").innerHTML = a;
+        //count = 0;
+        //allCount = 0;
+        //correctCount = 0;
+        //answerArr = [];
+        //correxctAnswerArr = [];
+        //randomWord = randomWordArr[Math.floor(Math.random() * randomWordArr.length )];
+         for (var i = 0; i < randomWord.length; i++) {
+            correctAnswerArr[i] = "_";
+        }
     }
 
     function Letter() {
         var letter = document.getElementById("letter").value;
+
         if (letter.length > 0) {
+
+            answerArr[allCount] = letter;
+            allCount++;
             for (var i = 0; i < randomWord.length; i++) {
                 if (randomWord[i] === letter) {
-                    answerArr[i] = letter;
-                }
+                    correctAnswerArr[i] = letter;
+                    correctCount++;
+                }                
             }
             count++;
             document.getElementById("Counter").innerHTML = "# of guesses: " + count;
             document.getElementById("answer").innerHTML = answerArr.join(" ");
+            document.getElementById("correctAnswer").innerHTML = correctAnswerArr.join(" ");
+            document.getElementById("letter").value = "";
         }
-        if (count > 6) {
-            alert("You Lose!  Better luck next time!");
+        if (correctCount == randomWord.length){
+            wins ++;
+            document.getElementById("wins").innerHTML = "Wins: " + wins;
+
+            alert("You Win!!!!!!!!!!!!!!!!!!!!");
+            var again = confirm("Would you like to play again");
+            if(again){
+                StartUp();
+            }
+        
+        } else {
+            if (count > randomWord.length) {
+                losses++;
+                document.getElementById("losses").innerHTML = "Losses: " + losses;
+                document.getElementById("word").innerHTML = "Word: " + randomWord;
+
+                alert("You Lose!  Better luck next time!");
+                var again = confirm("Would you like to play again");
+                if(again){
+                     StartUp();
+                }
+            }
         }
+
+        
     }
+    
+    
+    
+    
