@@ -19,13 +19,8 @@ else {
     var wins = 0;
     var losses = 0;
 
-    function StartUp() {
-        //count = 0;
-        //allCount = 0;
-        //correctCount = 0;
-        //answerArr = [];
-        //correxctAnswerArr = [];
-        //randomWord = randomWordArr[Math.floor(Math.random() * randomWordArr.length )];
+    function StartUp() {        
+        randomWord = randomWordArr[Math.floor(Math.random() * randomWordArr.length )];
          for (var i = 0; i < randomWord.length; i++) {
             correctAnswerArr[i] = "_";
         }
@@ -57,8 +52,10 @@ else {
             alert("You Win!!!!!!!!!!!!!!!!!!!!");
             var again = confirm("Would you like to play again");
             if(again){
-                StartUp();
-            }
+               function StartUp() { randomWord = randomWordArr[Math.floor(Math.random() * randomWordArr.length )];
+                    for (var i = 0; i < randomWord.length; i++) {
+                       correctAnswerArr[i] = "_";}
+            }}
         
         } else {
             if (count > randomWord.length) {
@@ -68,15 +65,8 @@ else {
 
                 alert("You Lose!  Better luck next time!");
                 var again = confirm("Would you like to play again");
-                if(again){
-                     StartUp();
-                }
             }
         }
 
         
     }
-    
-    
-    
-    
