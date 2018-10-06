@@ -22,9 +22,13 @@ else {
     function StartUp() {        
         randomWord = randomWordArr[Math.floor(Math.random() * randomWordArr.length )];
          for (var i = 0; i < randomWord.length; i++) {
-            correctAnswerArr[i] = "_";
+            correctAnswerArr[i] = "_";{document.getElementById("Counter").reset=0};
         }
-    }
+        // reset guess count
+        // ADD guess count to html
+        // add current wins/losses to html
+        // add current word to html
+    };
 
     function Letter() {
         var letter = document.getElementById("letter").value;
@@ -52,10 +56,11 @@ else {
             alert("You Win!!!!!!!!!!!!!!!!!!!!");
             var again = confirm("Would you like to play again");
             if(again){
-               function StartUp() { randomWord = randomWordArr[Math.floor(Math.random() * randomWordArr.length )];
-                    for (var i = 0; i < randomWord.length; i++) {
-                       correctAnswerArr[i] = "_";}
-            }}
+                StartUp();
+            //    function StartUp() { randomWord = randomWordArr[Math.floor(Math.random() * randomWordArr.length )];
+            //         for (var i = 0; i < randomWord.length; i++) {
+            //            correctAnswerArr[i] = "_";}
+            }
         
         } else {
             if (count > randomWord.length) {
@@ -65,6 +70,7 @@ else {
 
                 alert("You Lose!  Better luck next time!");
                 var again = confirm("Would you like to play again");
+                StartUp();
             }
         }
 
