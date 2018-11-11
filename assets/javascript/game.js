@@ -22,7 +22,7 @@ else {
     function StartUp() {        
         randomWord = randomWordArr[Math.floor(Math.random() * randomWordArr.length )];
          for (var i = 0; i < randomWord.length; i++) {
-            correctAnswerArr[i] = "_";{document.getElementById("Counter").reset=0};
+            correctAnswerArr[i] = "_";//{document.getElementById("Counter").reset=0};
         }
         // reset guess count
         // ADD guess count to html
